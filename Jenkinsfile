@@ -49,5 +49,5 @@ node {
               sh "aws s3 cp angular-todo/src/index.html s3://source-bucket-demo14"
         }
       }
-    }
+    
 // }
