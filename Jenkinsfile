@@ -14,7 +14,7 @@ node {
             git url: 'https://github.com/KeerthanaPonnaiyan/angular-todo.git'
           }
 
-    try {
+    // try {
         stage('NPM Install') {
             script {
                 notifyBitbucket(buildStatus: 'INPROGRESS')
@@ -48,5 +48,4 @@ node {
               sh "aws s3 cp angular-todo/src/index.html s3://mybucket25072023"
       }
     }
-  }
-}
+// }
