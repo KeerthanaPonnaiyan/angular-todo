@@ -11,9 +11,9 @@ node {
     // def nodeHome = tool name: 'Angular Project', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
     // env.PATH = "${nodeHome}/bin:${env.PATH}"
 
-        stage('checkout') {
-            git branch: 'main'  url: 'https://github.com/KeerthanaPonnaiyan/angular-todo.git'
-          }
+        // stage('checkout') {
+        //     git branch: 'main'  url: 'https://github.com/KeerthanaPonnaiyan/angular-todo.git'
+        //   }
 
     // try {
         stage('NPM Install') {
