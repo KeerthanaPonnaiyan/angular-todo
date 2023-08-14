@@ -37,10 +37,10 @@ node {
             sh "cd dist && zip -r ../${DIST_ARCHIVE}.zip . && cd .."
             archiveArtifacts artifacts: "${DIST_ARCHIVE}.zip", fingerprint: true
         }
-        stage('Deploy') {
-            sh "aws s3 cp ${DIST_ARCHIVE}.zip s3://${S3_BUCKET}/${DIST_ARCHIVE}.zip --profile=default"
-            sh "aws deploy create-deployment --application-name Angular --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name angular-deployment-group --s3-location bucket=${S3_BUCKET},bundleType=zip,key=${DIST_ARCHIVE}.zip"
-        }
+        // stage('Deploy') {
+        //     sh "aws s3 cp ${DIST_ARCHIVE}.zip s3://${S3_BUCKET}/${DIST_ARCHIVE}.zip --profile=default"
+        //     sh "aws deploy create-deployment --application-name Angular --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name angular-deployment-group --s3-location bucket=${S3_BUCKET},bundleType=zip,key=${DIST_ARCHIVE}.zip"
+        // }
       stage('deploy') {
               sh "aws configure set region $AWS_DEFAULT_REGION" 
               sh "aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID"  
@@ -48,4 +48,5 @@ node {
               sh "aws s3 cp angular-todo/src/index.html s3://mybucket25072023"
       }
     }
+  }
 }
