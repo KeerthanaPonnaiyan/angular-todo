@@ -1,17 +1,18 @@
 def VERSION = "${env.BUILD_NUMBER}"
 def DIST_ARCHIVE = "dist.${env.BUILD_NUMBER}"
-def S3_BUCKET = 'mybucket25072023'
+def S3_BUCKET = 'source-bucket-demo14'
 
 node {
+   agent any
     // Define the label of the agent where the build will run
     // You might want to specify a label that matches the required agent
     
     // Define the environment for the pipeline
-    def nodeHome = tool name: 'Angular Project', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
-    env.PATH = "${nodeHome}/bin:${env.PATH}"
+    // def nodeHome = tool name: 'Angular Project', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
+    // env.PATH = "${nodeHome}/bin:${env.PATH}"
 
         stage('checkout') {
-            git url: 'https://github.com/KeerthanaPonnaiyan/angular-todo.git'
+            git branch: 'main'  url: 'https://github.com/KeerthanaPonnaiyan/angular-todo.git'
           }
 
     // try {
